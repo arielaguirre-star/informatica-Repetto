@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Muestra de Informática - Galería RA</title>
+  <!-- Cargamos A-Frame y el motor de AR.js -->
+  <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
+  <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+</head>
+<body style="margin: 0px; overflow: hidden;">
+
+  <!-- Escena de Realidad Aumentada -->
+  <a-scene embedded arjs="sourceType: webcam; debugUIEnabled: false; detectionMode: mono_and_matrix;">
+
+    <!-- Pre-carga de Assets (Modelos 3D .glb) -->
+    <a-assets>
+      <a-asset-item id="modelo1" src="assets/modelo1.glb"></a-asset-item>
+      <a-asset-item id="modelo2" src="assets/modelo2.glb"></a-asset-item>
+      <a-asset-item id="modelo3" src="assets/modelo3.glb"></a-asset-item>
+      <a-asset-item id="modelo4" src="assets/modelo4.glb"></a-asset-item>
+      <a-asset-item id="modelo5" src="assets/modelo5.glb"></a-asset-item>
+      <a-asset-item id="modelo6" src="assets/modelo6.glb"></a-asset-item>
+      <a-asset-item id="modelo7" src="assets/modelo7.glb"></a-asset-item>
+      <a-asset-item id="modelo8" src="assets/modelo8.glb"></a-asset-item>
+      <a-asset-item id="modelo9" src="assets/modelo9.glb"></a-asset-item>
+      <a-asset-item id="modelo10" src="assets/modelo10.glb"></a-asset-item>
+    </a-assets>
+
+    <!-- PROYECTO 1 -->
+    <a-marker type="pattern" url="targets/patron1.patt">
+      <a-entity gltf-model="#modelo1" scale="0.5 0.5 0.5" position="0 0 0" rotation="0 0 0"></a-entity>
+    </a-marker>
+
+    <!-- PROYECTO 2 -->
+    <a-marker type="pattern" url="targets/patron2.patt">
+      <a-entity gltf-model="#modelo2" scale="0.5 0.5 0.5" position="0 0 0" rotation="0 0 0"></a-entity>
+    </a-marker>
+
+    <!-- PROYECTO 3 -->
+    <a-marker type="pattern" url="targets/patron3.patt">
+      <a-entity gltf-model="#modelo3" scale="0.5 0.5 0.5" position="0 0 0" rotation="0 0 0"></a-entity>
+    </a-marker>
+
+    <!-- PROYECTO 4 -->
+    <a-marker type="pattern" url="targets/patron4.patt">
+      <a-entity gltf-model="#modelo4" scale="0.5 0.5 0.5" position="0 0 0" rotation="0 0 0"></a-entity>
+    </a-marker>
+
+    <!-- PROYECTO 5 -->
+    <a-marker type="pattern" url="targets/patron5.patt">
+      <a-entity gltf-model="#modelo5" scale="0.5 0.5 0.5" position="0 0 0" rotation="0 0 0"></a-entity>
+    </a-marker>
+
+    <!-- PROYECTO 6 -->
+    <a-marker type="pattern" url="targets/patron6.patt">
+      <a-entity gltf-model="#modelo6" scale="0.5 0.5 0.5" position="0 0 0" rotation="0 0 0"></a-entity>
+    </a-marker>
+
+    <!-- PROYECTO 7 -->
+    <a-marker type="pattern" url="targets/patron7.patt">
+      <a-entity gltf-model="#modelo7" scale="0.5 0.5 0.5" position="0 0 0" rotation="0 0 0"></a-entity>
+    </a-marker>
+
+    <!-- PROYECTO 8 -->
+    <a-marker type="pattern" url="targets/patron8.patt">
+      <a-entity gltf-model="#modelo8" scale="0.5 0.5 0.5" position="0 0 0" rotation="0 0 0"></a-entity>
+    </a-marker>
+
+    <!-- PROYECTO 9 -->
+    <a-marker type="pattern" url="targets/patron9.patt">
+      <a-entity gltf-model="#modelo9" scale="0.5 0.5 0.5" position="0 0 0" rotation="0 0 0"></a-entity>
+    </a-marker>
+
+    <!-- PROYECTO 10 -->
+    <a-marker type="pattern" url="targets/patron10.patt">
+      <a-entity gltf-model="#modelo10" scale="0.5 0.5 0.5" position="0 0 0" rotation="0 0 0"></a-entity>
+    </a-marker>
+
+    <!-- Cámara que renderiza los objetos -->
+    <a-entity camera></a-entity>
+
+  </a-scene>
+</body>
+</html>

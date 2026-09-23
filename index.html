@@ -3,83 +3,152 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Muestra de Informática - Galería RA</title>
-  <!-- Cargamos A-Frame y el motor de AR.js -->
+  <title>Muestra de Informática - Shows de Drones RA</title>
+  <!-- Librerías de A-Frame y AR.js -->
   <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
   <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+
+  <style>
+    /* Estilo para el botón flotante de control de sonido */
+    #btn-audio {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 999;
+      padding: 12px 24px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 25px;
+      font-size: 16px;
+      font-weight: bold;
+      font-family: sans-serif;
+      box-shadow: 0px 4px 10px rgba(0,0,0,0.3);
+      cursor: pointer;
+    }
+    #btn-audio:active {
+      background-color: #0056b3;
+    }
+  </style>
 </head>
 <body style="margin: 0px; overflow: hidden;">
 
-  <!-- Escena de Realidad Aumentada -->
-  <a-scene embedded arjs="sourceType: webcam; debugUIEnabled: false; detectionMode: mono_and_matrix;">
+  <!-- Botón táctil sobre la pantalla del teléfono -->
+  <button id="btn-audio">🔊 Activar Sonido</button>
 
-    <!-- Pre-carga de Assets (Modelos 3D .glb) -->
+  <a-scene embedded arjs="sourceType: webcam; debugUIEnabled: false;">
+
+    <!-- PRECARGA DE LOS 10 VIDEOS (Inician muteados por defecto) -->
     <a-assets>
-      <a-asset-item id="modelo1" src="assets/modelo1.glb"></a-asset-item>
-      <a-asset-item id="modelo2" src="assets/modelo2.glb"></a-asset-item>
-      <a-asset-item id="modelo3" src="assets/modelo3.glb"></a-asset-item>
-      <a-asset-item id="modelo4" src="assets/modelo4.glb"></a-asset-item>
-      <a-asset-item id="modelo5" src="assets/modelo5.glb"></a-asset-item>
-      <a-asset-item id="modelo6" src="assets/modelo6.glb"></a-asset-item>
-      <a-asset-item id="modelo7" src="assets/modelo7.glb"></a-asset-item>
-      <a-asset-item id="modelo8" src="assets/modelo8.glb"></a-asset-item>
-      <a-asset-item id="modelo9" src="assets/modelo9.glb"></a-asset-item>
-      <a-asset-item id="modelo10" src="assets/modelo10.glb"></a-asset-item>
+      <video id="video1" src="assets/show1.mp4" loop="true" crossorigin="anonymous" playsinline webkit-playsinline muted></video>
+      <video id="video2" src="assets/show2.mp4" loop="true" crossorigin="anonymous" playsinline webkit-playsinline muted></video>
+      <video id="video3" src="assets/show3.mp4" loop="true" crossorigin="anonymous" playsinline webkit-playsinline muted></video>
+      <video id="video4" src="assets/show4.mp4" loop="true" crossorigin="anonymous" playsinline webkit-playsinline muted></video>
+      <video id="video5" src="assets/show5.mp4" loop="true" crossorigin="anonymous" playsinline webkit-playsinline muted></video>
+      <video id="video6" src="assets/show6.mp4" loop="true" crossorigin="anonymous" playsinline webkit-playsinline muted></video>
+      <video id="video7" src="assets/show7.mp4" loop="true" crossorigin="anonymous" playsinline webkit-playsinline muted></video>
+      <video id="video8" src="assets/show8.mp4" loop="true" crossorigin="anonymous" playsinline webkit-playsinline muted></video>
+      <video id="video9" src="assets/show9.mp4" loop="true" crossorigin="anonymous" playsinline webkit-playsinline muted></video>
+      <video id="video10" src="assets/show10.mp4" loop="true" crossorigin="anonymous" playsinline webkit-playsinline muted></video>
     </a-assets>
 
     <!-- PROYECTO 1 -->
-    <a-marker type="pattern" url="targets/patron1.patt">
-      <a-entity gltf-model="#modelo1" scale="0.5 0.5 0.5" position="0 0 0" rotation="0 0 0"></a-entity>
+    <a-marker type="pattern" url="targets/patron1.patt" id="marker1">
+      <a-video src="#video1" width="1.6" height="0.9" position="0 0.5 0" rotation="-90 0 0"></a-video>
     </a-marker>
 
     <!-- PROYECTO 2 -->
-    <a-marker type="pattern" url="targets/patron2.patt">
-      <a-entity gltf-model="#modelo2" scale="0.5 0.5 0.5" position="0 0 0" rotation="0 0 0"></a-entity>
+    <a-marker type="pattern" url="targets/patron2.patt" id="marker2">
+      <a-video src="#video2" width="1.6" height="0.9" position="0 0.5 0" rotation="-90 0 0"></a-video>
     </a-marker>
 
     <!-- PROYECTO 3 -->
-    <a-marker type="pattern" url="targets/patron3.patt">
-      <a-entity gltf-model="#modelo3" scale="0.5 0.5 0.5" position="0 0 0" rotation="0 0 0"></a-entity>
+    <a-marker type="pattern" url="targets/patron3.patt" id="marker3">
+      <a-video src="#video3" width="1.6" height="0.9" position="0 0.5 0" rotation="-90 0 0"></a-video>
     </a-marker>
 
     <!-- PROYECTO 4 -->
-    <a-marker type="pattern" url="targets/patron4.patt">
-      <a-entity gltf-model="#modelo4" scale="0.5 0.5 0.5" position="0 0 0" rotation="0 0 0"></a-entity>
+    <a-marker type="pattern" url="targets/patron4.patt" id="marker4">
+      <a-video src="#video4" width="1.6" height="0.9" position="0 0.5 0" rotation="-90 0 0"></a-video>
     </a-marker>
 
     <!-- PROYECTO 5 -->
-    <a-marker type="pattern" url="targets/patron5.patt">
-      <a-entity gltf-model="#modelo5" scale="0.5 0.5 0.5" position="0 0 0" rotation="0 0 0"></a-entity>
+    <a-marker type="pattern" url="targets/patron5.patt" id="marker5">
+      <a-video src="#video5" width="1.6" height="0.9" position="0 0.5 0" rotation="-90 0 0"></a-video>
     </a-marker>
 
     <!-- PROYECTO 6 -->
-    <a-marker type="pattern" url="targets/patron6.patt">
-      <a-entity gltf-model="#modelo6" scale="0.5 0.5 0.5" position="0 0 0" rotation="0 0 0"></a-entity>
+    <a-marker type="pattern" url="targets/patron6.patt" id="marker6">
+      <a-video src="#video6" width="1.6" height="0.9" position="0 0.5 0" rotation="-90 0 0"></a-video>
     </a-marker>
 
     <!-- PROYECTO 7 -->
-    <a-marker type="pattern" url="targets/patron7.patt">
-      <a-entity gltf-model="#modelo7" scale="0.5 0.5 0.5" position="0 0 0" rotation="0 0 0"></a-entity>
+    <a-marker type="pattern" url="targets/patron7.patt" id="marker7">
+      <a-video src="#video7" width="1.6" height="0.9" position="0 0.5 0" rotation="-90 0 0"></a-video>
     </a-marker>
 
     <!-- PROYECTO 8 -->
-    <a-marker type="pattern" url="targets/patron8.patt">
-      <a-entity gltf-model="#modelo8" scale="0.5 0.5 0.5" position="0 0 0" rotation="0 0 0"></a-entity>
+    <a-marker type="pattern" url="targets/patron8.patt" id="marker8">
+      <a-video src="#video8" width="1.6" height="0.9" position="0 0.5 0" rotation="-90 0 0"></a-video>
     </a-marker>
 
     <!-- PROYECTO 9 -->
-    <a-marker type="pattern" url="targets/patron9.patt">
-      <a-entity gltf-model="#modelo9" scale="0.5 0.5 0.5" position="0 0 0" rotation="0 0 0"></a-entity>
+    <a-marker type="pattern" url="targets/patron9.patt" id="marker9">
+      <a-video src="#video9" width="1.6" height="0.9" position="0 0.5 0" rotation="-90 0 0"></a-video>
     </a-marker>
 
     <!-- PROYECTO 10 -->
-    <a-marker type="pattern" url="targets/patron10.patt">
-      <a-entity gltf-model="#modelo10" scale="0.5 0.5 0.5" position="0 0 0" rotation="0 0 0"></a-entity>
+    <a-marker type="pattern" url="targets/patron10.patt" id="marker10">
+      <a-video src="#video10" width="1.6" height="0.9" position="0 0.5 0" rotation="-90 0 0"></a-video>
     </a-marker>
 
-    <!-- Cámara que renderiza los objetos -->
     <a-entity camera></a-entity>
 
   </a-scene>
+
+  <!-- LÓGICA JAVASCRIPT: Control de reproducción y audio -->
+  <script>
+    const videos = Array.from(document.querySelectorAll('video'));
+    const btnAudio = document.getElementById('btn-audio');
+    let isMuted = true;
+
+    // 1. Activar reproducción automática silenciosa de todos los videos
+    window.addEventListener('click', () => {
+      videos.forEach(v => {
+        if (v.paused) v.play();
+      });
+    }, { once: true });
+
+    // 2. Controlar la reproducción según el marcador enfocado
+    for (let i = 1; i <= 10; i++) {
+      const marker = document.getElementById(`marker${i}`);
+      const video = document.getElementById(`video${i}`);
+
+      marker.addEventListener('markerFound', () => {
+        video.play();
+      });
+
+      marker.addEventListener('markerLost', () => {
+        video.pause();
+      });
+    }
+
+    // 3. Alternar el audio con el botón
+    btnAudio.addEventListener('click', () => {
+      isMuted = !isMuted;
+      videos.forEach(v => {
+        v.muted = isMuted;
+      });
+
+      if (isMuted) {
+        btnAudio.innerText = "🔊 Activar Sonido";
+        btnAudio.style.backgroundColor = "#007bff";
+      } else {
+        btnAudio.innerText = "🔇 Silenciar";
+        btnAudio.style.backgroundColor = "#dc3545";
+      }
+    });
+  </script>
 </body>
 </html>

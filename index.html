@@ -8,6 +8,8 @@
   <!-- Carga de A-Frame y AR.js -->
   <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
   <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+  <!-- Librería externa para gestos táctiles (zoom y rotación con dedos) -->
+  <script src="https://raw.githack.com/fcor/arjs-gestures/master/dist/gestures.js"></script>
 
   <style>
     /* Estilos del botón de audio flotante */
@@ -16,7 +18,7 @@
       bottom: 30px;
       left: 50%;
       transform: translateX(-50%);
-      z-index: 99999; /* Asegura que el botón quede SIEMPRE por encima de la cámara */
+      z-index: 99999;
       pointer-events: auto;
       padding: 14px 28px;
       background-color: #007bff;
@@ -41,7 +43,11 @@
   <!-- Botón de control de sonido -->
   <button id="btn-audio">🔊 Activar Sonido</button>
 
-  <a-scene embedded arjs="sourceType: webcam; debugUIEnabled: false;">
+  <!-- Escena activada con detector de gestos táctiles -->
+  <a-scene 
+    embedded 
+    arjs="sourceType: webcam; debugUIEnabled: false;"
+    gesture-detector>
 
     <!-- PRECARGA DE VIDEOS -->
     <a-assets>
@@ -58,54 +64,53 @@
     </a-assets>
 
     <!-- PROYECTO 1 -->
-    <a-marker type="pattern" url="targets/patron1.patt" id="marker1">
-      <!-- Mantenemos width 0.9 y height 1.6 para formato VERTICAL -->
-      <a-video src="#video1" width="0.9" height="1.6" position="0 0.8 0" rotation="-90 0 0"></a-video>
+    <a-marker type="pattern" url="targets/patron1.patt" id="marker1" raycaster="objects: .clickable" cursor="fuse: false; rayOrigin: mouse;">
+      <a-video src="#video1" class="clickable" gesture-handler="minScale: 0.2; maxScale: 5" width="0.9" height="1.6" position="0 0.8 0" rotation="-90 0 0"></a-video>
     </a-marker>
 
     <!-- PROYECTO 2 -->
-    <a-marker type="pattern" url="targets/patron2.patt" id="marker2">
-      <a-video src="#video2" width="0.9" height="1.6" position="0 0.8 0" rotation="-90 0 0"></a-video>
+    <a-marker type="pattern" url="targets/patron2.patt" id="marker2" raycaster="objects: .clickable" cursor="fuse: false; rayOrigin: mouse;">
+      <a-video src="#video2" class="clickable" gesture-handler="minScale: 0.2; maxScale: 5" width="0.9" height="1.6" position="0 0.8 0" rotation="-90 0 0"></a-video>
     </a-marker>
 
     <!-- PROYECTO 3 -->
-    <a-marker type="pattern" url="targets/patron3.patt" id="marker3">
-      <a-video src="#video3" width="0.9" height="1.6" position="0 0.8 0" rotation="-90 0 0"></a-video>
+    <a-marker type="pattern" url="targets/patron3.patt" id="marker3" raycaster="objects: .clickable" cursor="fuse: false; rayOrigin: mouse;">
+      <a-video src="#video3" class="clickable" gesture-handler="minScale: 0.2; maxScale: 5" width="0.9" height="1.6" position="0 0.8 0" rotation="-90 0 0"></a-video>
     </a-marker>
 
     <!-- PROYECTO 4 -->
-    <a-marker type="pattern" url="targets/patron4.patt" id="marker4">
-      <a-video src="#video4" width="0.9" height="1.6" position="0 0.8 0" rotation="-90 0 0"></a-video>
+    <a-marker type="pattern" url="targets/patron4.patt" id="marker4" raycaster="objects: .clickable" cursor="fuse: false; rayOrigin: mouse;">
+      <a-video src="#video4" class="clickable" gesture-handler="minScale: 0.2; maxScale: 5" width="0.9" height="1.6" position="0 0.8 0" rotation="-90 0 0"></a-video>
     </a-marker>
 
     <!-- PROYECTO 5 -->
-    <a-marker type="pattern" url="targets/patron5.patt" id="marker5">
-      <a-video src="#video5" width="0.9" height="1.6" position="0 0.8 0" rotation="-90 0 0"></a-video>
+    <a-marker type="pattern" url="targets/patron5.patt" id="marker5" raycaster="objects: .clickable" cursor="fuse: false; rayOrigin: mouse;">
+      <a-video src="#video5" class="clickable" gesture-handler="minScale: 0.2; maxScale: 5" width="0.9" height="1.6" position="0 0.8 0" rotation="-90 0 0"></a-video>
     </a-marker>
 
     <!-- PROYECTO 6 -->
-    <a-marker type="pattern" url="targets/patron6.patt" id="marker6">
-      <a-video src="#video6" width="0.9" height="1.6" position="0 0.8 0" rotation="-90 0 0"></a-video>
+    <a-marker type="pattern" url="targets/patron6.patt" id="marker6" raycaster="objects: .clickable" cursor="fuse: false; rayOrigin: mouse;">
+      <a-video src="#video6" class="clickable" gesture-handler="minScale: 0.2; maxScale: 5" width="0.9" height="1.6" position="0 0.8 0" rotation="-90 0 0"></a-video>
     </a-marker>
 
     <!-- PROYECTO 7 -->
-    <a-marker type="pattern" url="targets/patron7.patt" id="marker7">
-      <a-video src="#video7" width="0.9" height="1.6" position="0 0.8 0" rotation="-90 0 0"></a-video>
+    <a-marker type="pattern" url="targets/patron7.patt" id="marker7" raycaster="objects: .clickable" cursor="fuse: false; rayOrigin: mouse;">
+      <a-video src="#video7" class="clickable" gesture-handler="minScale: 0.2; maxScale: 5" width="0.9" height="1.6" position="0 0.8 0" rotation="-90 0 0"></a-video>
     </a-marker>
 
     <!-- PROYECTO 8 -->
-    <a-marker type="pattern" url="targets/patron8.patt" id="marker8">
-      <a-video src="#video8" width="0.9" height="1.6" position="0 0.8 0" rotation="-90 0 0"></a-video>
+    <a-marker type="pattern" url="targets/patron8.patt" id="marker8" raycaster="objects: .clickable" cursor="fuse: false; rayOrigin: mouse;">
+      <a-video src="#video8" class="clickable" gesture-handler="minScale: 0.2; maxScale: 5" width="0.9" height="1.6" position="0 0.8 0" rotation="-90 0 0"></a-video>
     </a-marker>
 
     <!-- PROYECTO 9 -->
-    <a-marker type="pattern" url="targets/patron9.patt" id="marker9">
-      <a-video src="#video9" width="0.9" height="1.6" position="0 0.8 0" rotation="-90 0 0"></a-video>
+    <a-marker type="pattern" url="targets/patron9.patt" id="marker9" raycaster="objects: .clickable" cursor="fuse: false; rayOrigin: mouse;">
+      <a-video src="#video9" class="clickable" gesture-handler="minScale: 0.2; maxScale: 5" width="0.9" height="1.6" position="0 0.8 0" rotation="-90 0 0"></a-video>
     </a-marker>
 
     <!-- PROYECTO 10 -->
-    <a-marker type="pattern" url="targets/patron10.patt" id="marker10">
-      <a-video src="#video10" width="0.9" height="1.6" position="0 0.8 0" rotation="-90 0 0"></a-video>
+    <a-marker type="pattern" url="targets/patron10.patt" id="marker10" raycaster="objects: .clickable" cursor="fuse: false; rayOrigin: mouse;">
+      <a-video src="#video10" class="clickable" gesture-handler="minScale: 0.2; maxScale: 5" width="0.9" height="1.6" position="0 0.8 0" rotation="-90 0 0"></a-video>
     </a-marker>
 
     <a-entity camera></a-entity>
@@ -136,7 +141,7 @@
 
     // Evento para alternar el sonido
     btnAudio.addEventListener('click', (e) => {
-      e.stopPropagation(); // Evita interferencias con eventos de A-Frame
+      e.stopPropagation();
       isMuted = !isMuted;
 
       videos.forEach(v => {
